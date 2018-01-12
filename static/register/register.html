@@ -1,0 +1,39 @@
+<div style="margin: 1px solid black;">
+
+    <div ng-controller="register as reg">
+        <h1>Registracija</h1>
+        <form name="unosclanka" ng-submit="unosclanka.$valid && reg.registration()">
+            <p style="color: red;">Polja oznacena ( * ) su obavezna</p>
+
+
+            <div class="form-group">
+                <label for="name">*Ime</label>
+                <input type="text" class="form-control" ng-class="{'is-invalid': unosclanka.name.$invalid}" id="naslov" name="naslov" aria-describedby="naslov"
+                    placeholder="Ime" ng-model="reg.person.name" ng-required="true">
+            </div>
+            <div class="form-group">
+                <label for="surname">*Prezime</label>
+                <input type="text" class="form-control" ng-class="{'is-invalid': unosclanka.surname.$invalid}" id="naslov" name="naslov" aria-describedby="naslov"
+                    placeholder="Prezime" ng-model="reg.person.surname" ng-required="true">
+            </div>
+            <div class="form-group">
+                <label for="username">*Username</label>
+                <input type="text" class="form-control" ng-class="{'is-invalid': unosclanka.username.$invalid}" id="datum" name="datum" placeholder="Username"
+                    ng-model="reg.person.username" ng-required="true">
+            </div>
+            <div class="form-group">
+                <label for="password">*Password</label>
+                <input type="text" class="form-control" ng-class="{'is-invalid': unosclanka.password.$invalid}" id="uloge" name="uloge" placeholder="Password"
+                    ng-model="reg.person.password" ng-required="true">
+            </div>
+            <div class="form-group">
+                <label for="email">*E-mail</label>
+                <input type="text" class="form-control" ng-class="{'is-invalid': unosclanka.email.$invalid}" id="uloge" name="uloge" placeholder="E-mail"
+                    ng-model="reg.person.email" ng-required="true">
+            </div>
+            <div class="form-group">
+                <input class="btn btn-primary" type="submit" ng-disabled="unosclanka.$invalid">
+            </div>
+        </form>
+    </div>
+</div>

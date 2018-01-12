@@ -1,0 +1,31 @@
+small {
+    color: #2e2e2e;
+}
+.sve {
+    margin: 3%;
+    margin-left: 0%;
+    margin-right: 0%;
+    height: 75%;
+    background: white;
+    overflow: auto;
+    
+}
+
+.jedan {
+    width: 230px;
+    height: 230px;
+    border: none;
+    outline: none;
+    display: inline-block;
+    margin: 3vh 3vh 3vh 8vh;
+    float: left;
+    border-radius: 50%;
+    background: rgb(216, 204, 156);
+    padding-top: 4%;
+    padding-left: 3%;    
+
+}
+
+.jedan:hover {
+    transform: scale(1.2);
+}

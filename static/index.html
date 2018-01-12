@@ -1,0 +1,170 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Theatre Tickets</title>
+        <meta charset="utf-8">
+        <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="css\ui-bootstrap\ui-bootstrap-tpls-2.5.0.min.js">
+        <link href="css/main.css" rel="stylesheet">
+        <link href="allPerf/allPerf.css" rel="stylesheet">
+        <script src="js/javascript.js"></script>
+        <style>[ng\:cloak], [ng-cloak], .ng-cloak {display: none;}</style>
+    </head>
+    
+    <body ng-app="theatreApp" ng-cloak>
+
+        <!-- <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+            <a class="btn btn-primary" href="#">Admin Portal</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false"
+                aria-label="Prikaži/sakrij meni">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item" style="padding-left: 20%;">
+                        <a class="btn btn-primary" href="#">Nova</a>
+                    </li>
+                    <li class="nav-item" style="padding-left: 20%;">
+                        <a class="btn btn-primary" href="#">Pretraga</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Pretraga" aria-label="Pretraga">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pretraga</button>
+                </form>
+            </div>
+        </nav> -->
+
+
+        
+
+
+
+        <!-- All performances -->
+        <div class="container-fluid" style="padding-left: 8%; padding-top: 2%;">
+            <div class="row">
+                <div id="allPerf" ng-controller="listOfPerformances as lp" class="col-md-3">
+                    <h4>Sve Predstave</h4>
+                    <div id="onePerf" ng-repeat="perf in lp.performances track by $index">
+                        
+                        <hr>
+                        <button name="delete" class="btn btn-link" style="float:right; margin-left: 1%;" ng-click="lp.deletePerf(perf.id)">Obrisi</button>
+                        <div ng-controller="changing as ch">
+                            <button name="change" class="btn btn-link" style="float:right;" href="#!" ui-sref="changing({id:perf.id})">Izmeni</button>
+                        </div>
+                        <h2>{{perf.name}}</h2>
+                        <small>Uloge: {{perf.cast}}</small><br>
+                        <small>Zanr: {{perf.genre}}</small><br>
+                        
+                        
+                                
+                        
+                    </div>
+                    
+
+                    <!-- NG IF -->
+
+                    <div ng-if="lp.changing.name">
+
+                        <form name="unosclanka" ng-submit="unosclanka.$valid && lp.changePerf()">
+
+
+                            <div class="form-group">
+                                <label for="naslov">*Naziv</label>
+                                <input type="text" class="form-control" ng-class="{'is-invalid': unosclanka.naslov.$invalid}" id="naslov" name="naslov" aria-describedby="naslov"
+                                    placeholder="Naslov" ng-model="lp.changing.name" ng-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="autor">*Vreme trajanja</label>
+                                <input type="number" class="form-control" ng-class="{'is-invalid': unosclanka.autor.$invalid}" id="autor" name="autor" placeholder="Vreme trajanja"
+                                    ng-model="lp.changing.duration" ng-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="datum">*Zanr</label>
+                                <input type="text" class="form-control" ng-class="{'is-invalid': unosclanka.datum.$invalid}" id="datum" name="datum" placeholder="Zanr"
+                                    ng-model="lp.changing.genre" ng-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="datum">*Uloge</label>
+                                <input type="text" class="form-control" ng-class="{'is-invalid': unosclanka.datum.$invalid}" id="uloge" name="uloge" placeholder="Uloge"
+                                    ng-model="lp.changing.cast" ng-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="datum">*Cena ulaznice</label>
+                                <input type="number" class="form-control" ng-class="{'is-invalid': unosclanka.datum.$invalid}" id="datum" name="datum" placeholder="Cena"
+                                    ng-model="lp.changing.price" ng-required="true">
+                            </div>
+                            <!-- <div class="form-group">
+                                <label for="datum">Datum</label>
+                                <input type="date" class="form-control" ng-class="{'is-invalid': unosclanka.datum.$invalid}" id="datum" name="datum" placeholder="Datum"
+                                    ng-model="lv.novi.date" ng-required="true">
+                            </div> -->
+                            <div class="form-group">
+                                <input class="btn btn-primary" type="submit" ng-disabled="unosclanka.$invalid">
+                                <button class="btn btn-danger" style="float: right;" ng-click="lp.resetPerf()">Odustani</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+
+
+                <!-- NG-VIEW DIV -->
+                <div ng-controller="listOfPerformances as lp" class="col-md-7">
+                    
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!" ui-sref="newPerf">Nova predstave</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!" ui-sref="changing">Izmena</a>
+                        </li>   
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!" ui-sref="allPerf">Sve predstave</a>
+                        </li>  
+                    </ul>
+
+                    <div id="view">
+                        <ui-view></ui-view>
+                    </div>
+
+                </div>
+
+                
+                
+
+
+            </div>
+
+        </div>
+        
+    
+
+
+
+
+        
+
+        
+
+
+        
+
+
+
+
+
+        <script src="js/jquery/jquery-3.2.1.min.js"></script>
+        <script src="js/popper.js/popper.min.js"></script>
+        <script src="js/bootstrap/bootstrap.min.js"></script>
+        <script src="js/angularjs/angular.min.js"></script>
+        <script src="css\ui-bootstrap\ui-bootstrap-tpls-2.5.0.min.js"></script>
+        <script src="css/routeui/angular-ui-router.min.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/performance/performance.js"></script>
+        <script src="changing/changing.js"></script>
+    </body>
+
+</html>

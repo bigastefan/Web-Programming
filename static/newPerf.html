@@ -1,0 +1,44 @@
+<div style="margin: 1px solid black;">
+
+    
+    <h1>Unos nove predstave</h1>
+    <form name="unosclanka" ng-submit="unosclanka.$valid && lp.addPerformance()">
+        <p style="color: red;">Polja oznacena ( * ) su obavezna</p>
+
+
+        <div class="form-group">
+            <label for="naslov">*Naziv</label>
+            <input type="text" class="form-control" ng-class="{'is-invalid': unosclanka.naslov.$invalid}" id="naslov" name="naslov" aria-describedby="naslov"
+                placeholder="Naslov" ng-model="lp.newPerformance.name" ng-required="true">
+        </div>
+        <div class="form-group">
+            <label for="autor">*Vreme trajanja</label>
+            <input type="number" class="form-control" ng-class="{'is-invalid': unosclanka.autor.$invalid}" id="autor" name="autor" placeholder="Vreme trajanja"
+                ng-model="lp.newPerformance.duration" ng-required="true">
+        </div>
+        <div class="form-group">
+            <label for="datum">*Zanr</label>
+            <input type="text" class="form-control" ng-class="{'is-invalid': unosclanka.datum.$invalid}" id="datum" name="datum" placeholder="Zanr"
+                ng-model="lp.newPerformance.genre" ng-required="true">
+        </div>
+        <div class="form-group">
+            <label for="datum">*Uloge</label>
+            <input type="text" class="form-control" ng-class="{'is-invalid': unosclanka.datum.$invalid}" id="uloge" name="uloge" placeholder="Uloge"
+                ng-model="lp.newPerformance.cast" ng-required="true">
+        </div>
+        <div class="form-group">
+            <label for="datum">*Cena ulaznice</label>
+            <input type="number" class="form-control" ng-class="{'is-invalid': unosclanka.datum.$invalid}" id="datum" name="datum" placeholder="Cena"
+                ng-model="lp.newPerformance.price" ng-required="true">
+        </div>
+        <!-- <div class="form-group">
+            <label for="datum">Datum</label>
+            <input type="date" class="form-control" ng-class="{'is-invalid': unosclanka.datum.$invalid}" id="datum" name="datum" placeholder="Datum"
+                ng-model="lv.novi.date" ng-required="true">
+        </div> -->
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" ng-disabled="unosclanka.$invalid">
+        </div>
+    </form>
+
+</div>

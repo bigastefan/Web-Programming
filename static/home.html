@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Theatre Tickets</title>
+        <meta charset="utf-8">
+        <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="css\ui-bootstrap\ui-bootstrap-tpls-2.5.0.min.js">
+        <link href="css/main.css" rel="stylesheet">
+        <link rel="stylesheet" href="allPerf/allPerf.css">
+        <script src="js/javascript.js"></script>
+        <style>[ng\:cloak], [ng-cloak], .ng-cloak {display: none;}</style>
+    </head>
+
+<body ng-app="theatreApp" ng-cloak>
+
+
+    <div>
+        
+        
+        <div class="container-fluid" style="padding-left: 2%; padding-top: 2%;">
+            <div class="row">
+                <div class="col-md-2">
+
+                        <ul class="ulstyle">
+                            <li><a href="#!" ui-sref="allPerf">Sve predstave</a></li>
+                            <li><a href="#!">News</a></li>
+                            <li><a href="#!">Contact</a></li>
+                            <li><a href="#!" ui-sref="register">Registruj se</a></li>
+                        </ul>
+
+                </div>
+
+                <div class="col-md-8 view">
+                    <!-- UI VIEW -->
+                    <ui-view></ui-view>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+    <br><br><br>
+
+
+
+
+    <!-- style -->
+    <div class="container-fluid" id="main_div">
+        
+        
+        <div class="row">
+            
+
+            <div class="col-md-6 left">
+                
+            </div>
+
+
+            <div class="col-md-5 right">
+                <div class="row">
+                    <div class="col-sm-5 mali"></div>
+                    <div class="col-sm-5 mali" style="margin-left: 8%;"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-11 veliki"></div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    
+
+        
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="js/jquery/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.js/popper.min.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="js/angularjs/angular.min.js"></script>
+    <script src="css/ui-bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="css/routeui/angular-ui-router.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/performance/performance.js"></script>
+    <script src="register/register.js"></script>
+
+    
+</body>
+</html>
